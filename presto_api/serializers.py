@@ -5,7 +5,7 @@ from .models import Restaurant, Dish, Topping
 
 
 class ToppingSerializer(serializers.ModelSerializer):
-    sub_toppings = RecursiveField(required=False, allow_null=True, many=True)
+    sub_toppings = serializers.ListSerializer(read_only=True, child=RecursiveField())
 
     class Meta:
         model = Topping

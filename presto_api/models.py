@@ -14,7 +14,7 @@ class Restaurant(models.Model):
 
 class Topping(models.Model):
     name = models.CharField(max_length=32)
-    sub_toppings = models.ManyToManyField('self', blank=True, null=True)
+    parent = models.ForeignKey('self', blank=True, null=True, on_delete=models.CASCADE, related_name='sub_toppings')
 
     def __str__(self):
         return self.name
