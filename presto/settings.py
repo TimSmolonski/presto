@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.postgres'
-    'presto.presto_api'
+    'django.contrib.postgres',
+    'presto_api'
 ]
 
 THIRD_PARTY_APPS = [
