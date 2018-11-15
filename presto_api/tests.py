@@ -74,9 +74,7 @@ class PrestoTests(test.APITestCase):
         self.data_restaurants = {
             'title': self.restaurant.title,
             'address': self.restaurant.address,
-            'rating': self.restaurant.rating,
-            'dishes': [self.data_dishes]
-
+            'rating': self.restaurant.rating
         }
 
     def testToppings(self):
@@ -95,6 +93,6 @@ class PrestoTests(test.APITestCase):
         self.assertEqual(response.data, [self.data_restaurants])
 
     def testRestaurantItem(self):
-        response = self.client.get(path=URL_RESTAURANTS_LIST + str(self.restaurant.id) + '/')
+        response = self.client.get(path=URL_RESTAURANTS_LIST + str(self.restaurant.id) + '/item/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, self.data_restaurants)
+        self.assertEqual(response.data, [self.data_dishes])

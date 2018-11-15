@@ -9,7 +9,7 @@ class ToppingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Topping
-        fields = ('name', 'sub_toppings', 'cost')
+        fields = ('name',  'cost', 'sub_toppings')
 
 
 class DishSerializer(serializers.ModelSerializer):
@@ -17,12 +17,11 @@ class DishSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Dish
-        fields = ('name', 'toppings', 'base_cost')
+        fields = ('name', 'base_cost', 'toppings')
 
 
 class RestaurantSerializer(serializers.ModelSerializer):
-    dishes = DishSerializer(many=True)
 
     class Meta:
         model = Restaurant
-        fields = ('title', 'address', 'dishes', 'rating')
+        fields = ('title', 'address', 'rating')

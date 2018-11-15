@@ -9,6 +9,14 @@ class RestaurantViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = RestaurantSerializer
 
 
+class RestaurantItemViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Dish.objects.all()
+    serializer_class = DishSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(restaurant=self.kwargs.get('restaurant_pk'))
+
+
 class DishViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Dish.objects.all()
     serializer_class = DishSerializer
