@@ -7,11 +7,11 @@ Create a RESTful API which returns restaurant's dishes and their toppings.
 
 ### Dependencies
 *Python 3.5+*  
-Basic Language of the project.
+Basic Language of the project.  
 *Django + Django Rest Framework*   
 Used to create api services.
-*PostgreSQL + PsyCopg2*  
-PostgreSQL was one of the task requirements. PsyCopg2 is PSQL driver for Python. 
+*PsyCopg2*  
+PostgreSQL driver for Python.  
 *DjangoRestFramework-Recursive*  
 Used to create api serializer for Topping model. This library allows to create recursive fields
 for models.
@@ -56,6 +56,12 @@ GET /restaurants/1/item/
     }
 ]
 ```
+## Django motivation  
+Django is "Batteries included" framework. It contains all functionality I need
+except creating RESTful API endpoints, which are created using Django Rest Framework.
+### DjangoRestFramework-Recursive
+In DjangoRestFramework by default I can use DRF-nested serializers to create recursive fields. 
+But unfortunately, depth of those fields is limited so I was forced to use DRF-Recursive which solves this problem.
 
 ## Quick Start
 * Clone repository
