@@ -56,3 +56,11 @@ GET /restaurants/1/item/
     }
 ]
 ```
+
+## Quick Start
+* Clone repository
+* Create database 'presto', with owner admin:admin (You can change DB settings in module settings.py )
+* While in project root dir, use command `pip3 install -r requirements.txt`
+* Use command `manage.py runserver localhost:8000` to run project server
+* (Optionally) You can create superuser via `manage.py createsuperuser` to access admin panel
+* (Optionally) Run tests using `manage.py test`
