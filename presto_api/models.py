@@ -19,6 +19,13 @@ class Topping(models.Model):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        if self.parent.id != self.id:
+            super(Topping, self).save(*args, **kwargs)
+        else:
+            self.parent = None
+            super(Topping, self).save(*args, **kwargs)
+
 
 class Dish(models.Model):
     name = models.CharField(max_length=32)
